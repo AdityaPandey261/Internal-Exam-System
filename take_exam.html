@@ -1,0 +1,27 @@
+<!-- templates/take_exam.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Exam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="exam-container">
+        <h2>Exam in Progress</h2>
+        <form action="/submit_exam" method="POST">
+            <input type="hidden" name="exam_id" value="{{ exam_id }}">
+            {% for question in questions %}
+                <div class="question-block">
+                    <h4>Q{{ loop.index }}. {{ question[2] }}</h4>
+                    <label><input type="radio" name="q{{ question[0] }}" value="1" required> {{ question[3] }}</label><br>
+                    <label><input type="radio" name="q{{ question[0] }}" value="2"> {{ question[4] }}</label><br>
+                    <label><input type="radio" name="q{{ question[0] }}" value="3"> {{ question[5] }}</label><br>
+                    <label><input type="radio" name="q{{ question[0] }}" value="4"> {{ question[6] }}</label>
+                </div>
+            {% endfor %}
+            <button type="submit" class="submit-button">Submit Exam</button>
+        </form>
+    </div>
+</body>
+</html>

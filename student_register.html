@@ -1,0 +1,21 @@
+<!-- templates/student_register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="form-body">
+    <div class="form-container">
+        <h2>Student Registration</h2>
+        <form action="/register_student" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email ID" required>
+            <input type="text" name="reg_no" placeholder="Registration Number" required>
+            <input type="text" name="class" placeholder="Class" required>
+            <button type="submit">Proceed to Exams</button>
+        </form>
+    </div>
+</body>
+</html>

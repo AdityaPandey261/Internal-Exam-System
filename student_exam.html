@@ -1,0 +1,30 @@
+<!-- templates/student_exam.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Exams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="exam-list-container">
+        <h2>Available Exams</h2>
+        {% if exams %}
+            <ul class="exam-list">
+                {% for exam in exams %}
+                    <li>
+                        <div class="exam-card">
+                            <h3>{{ exam[1] }} - {{ exam[2] }}</h3>
+                            <p>Total Questions: {{ exam[3] }}</p>
+                            <p>Marks/Question: {{ exam[4] }}</p>
+                            <a href="/start_exam/{{ exam[0] }}" class="start-button">Start Exam</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No exams available at the moment.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!-- templates/view_results.html -->
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <title>Exam Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="table-container">
+    <h2>Exam Results</h2>
+    {% if results %}
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Exam Subject</th>
+            <th>Course</th>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in results %}
+          <tr>
+            <td>{{ row['student_name'] }}</td>
+            <td>{{ row['email'] }}</td>
+            <td>{{ row['subject'] }}</td>
+            <td>{{ row['course'] }}</td>
+            <td>{{ row['score'] }}</td>
+            <td>{{ row['date_taken'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No exam results found.</p>
+    {% endif %}
+    <a href="/teacher_dashboard" class="back-button">Back to Dashboard</a>
+  </div>
+</body>
+</html>

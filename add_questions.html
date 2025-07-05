@@ -1,0 +1,34 @@
+<!-- templates/add_questions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add Questions to Exam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Questions to Exam: {{ exam.subject }} ({{ exam.course }})</h2>
+        <form action="/add_questions/{{ exam.id }}" method="POST">
+            <textarea name="question_text" placeholder="Enter question here..." required rows="3"></textarea>
+            <input type="text" name="option1" placeholder="Option 1" required />
+            <input type="text" name="option2" placeholder="Option 2" required />
+            <input type="text" name="option3" placeholder="Option 3" required />
+            <input type="text" name="option4" placeholder="Option 4" required />
+
+            <label for="correct_option">Select Correct Option:</label>
+            <select name="correct_option" id="correct_option" required>
+                <option value="">--Select--</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+            </select>
+
+            <button type="submit">Add Question</button>
+        </form>
+
+        <a href="/view_exams" class="back-button">Back to Exams</a>
+    </div>
+</body>
+</html>

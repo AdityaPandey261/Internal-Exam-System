@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Exams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>All Scheduled Exams</h2>
+        <a href="/teacher_dashboard" class="dashboard-button">⬅️ Back to Dashboard</a>
+        <ul>
+            {% if exams %}
+                {% for exam in exams %}
+                    <li>
+                        <strong>Subject:</strong> {{ exam[1] }} |
+                        <strong>Course:</strong> {{ exam[2] }} |
+                        <strong>Total Questions:</strong> {{ exam[3] }} |
+                        <strong>Marks per Question:</strong> {{ exam[4] }}
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>No exams scheduled yet.</li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>

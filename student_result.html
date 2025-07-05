@@ -1,0 +1,17 @@
+<!-- templates/student_result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="result-container">
+        <h2>🎉 Exam Completed!</h2>
+        <p>Your Score:</p>
+        <div class="score-box">{{ score }} / {{ total }}</div>
+        <a href="/exams" class="back-button">Take Another Exam</a>
+    </div>
+</body>
+</html>

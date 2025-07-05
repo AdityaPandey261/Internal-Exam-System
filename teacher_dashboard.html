@@ -1,0 +1,20 @@
+<!-- templates/teacher_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>👩‍🏫 Welcome, {{ session['teacher'] }}</h2>
+        <div class="dashboard-buttons">
+            <a href="/create_exam" class="dashboard-button">➕ Create New Exam</a>
+            <a href="/view_exams" class="dashboard-button">📚 View All Exams</a>
+            <a href="/view_results" class="dashboard-button">📊 View Exam Results</a>
+            <a href="/teacher_logout" class="dashboard-button logout">🚪 Logout</a>
+        </div>
+    </div>
+</body>
+</html>
